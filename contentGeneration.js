@@ -105,7 +105,7 @@ function addSpacers(data) {
 			newObj.year = currentYear;
 			newObj.month = data[i].month;
 			newObj.isEntry = false;
-			list.splice( i, 0, newObj); 
+			data.splice( i, 0, newObj); 
 			i++;
 		}
 		else if (currentMonthNum < data[i].monthNum) {
@@ -150,7 +150,7 @@ function addSpacers(data) {
 			else if (currentMonthNum == 12) {
 			  newObj.month = "December";
 			}
-			list.splice( i, 0, newObj); 
+			data.splice( i, 0, newObj); 
 			i++;
 		}
 	}
