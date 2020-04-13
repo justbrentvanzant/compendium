@@ -29,9 +29,9 @@ function addEntry(bodyElement,dataId) {
 	var dateSpan = document.createElement("span");
 	var aTag = document.createElement("a");
 	
-	dateSpan.innerHTML = currData[dataId].date;	
-	aTag.innerHTML = currData[dataId].contentName;
-	aTag.href = currData[dataId].contentLink;
+	dateSpan.innerHTML = curData[dataId].date;	
+	aTag.innerHTML = curData[dataId].contentName;
+	aTag.href = curData[dataId].contentLink;
 	aTag.target = "_blank";
 	
 	//add classes
