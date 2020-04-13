@@ -50,9 +50,7 @@ function renderData(bodyElement){
     	bodyElement.removeChild(bodyElement.firstChild);
   	}
   	for (var i = 0; i < curData.length; i++) {
-		if (typeName != "intern" || typeName == "") {
-			addEntry(bodyElement,i);
-		}
+		addEntry(bodyElement,i);
 	}
 }
 
