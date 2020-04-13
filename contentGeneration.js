@@ -1,4 +1,4 @@
-var DATA_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ93EFt3fS0D7L_2W1WlCFzFqrbdPHTIqIXJQdx8IwEAlitCykPhOJdAhc19J-pavWW6x95FNzXFz6L/pubhtml';
+var DATA_URL = 'https://docs.google.com/spreadsheets/d/1UNWj9Pq2esRlyXtp4trN9058K5n1J8XhsgYlzk8ngPo/edit?usp=sharing';
 var artifactData;
 var curData;
 var isOrdered = false;
