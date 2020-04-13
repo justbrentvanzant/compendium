@@ -94,11 +94,73 @@ function extrapolateData(data) {
 	}
 	return data;
 }
-
+function addSpacers(data) {
+	var currentYear = 9000;
+	var currentMonthNum = 0;
+	for (var i = 0; i < data.length; i++) {
+		if (data[i].year < currentYear) {
+			currentYear = data[i].year;
+			currentMonthNum = data[i].monthNum;
+			var newObj = {};
+			newObj.year = currentYear;
+			newObj.month = data[i].month;
+			newObj.isEntry = false;
+			list.splice( i, 0, newObj); 
+			i++;
+		}
+		else if (currentMonthNum < data[i].monthNum) {
+			currentMonthNum = data[i].monthNum;
+			var newObj = {};
+			newObj.year = -1;
+			newObj.monthNum = currentMonthNum;
+			newObj.isEntry = false;
+			if (currentMonthNum == 1) {
+				newObj.month = "January";
+			}
+			else if (currentMonthNum == 2) {
+			   newObj.month = "February";
+			}
+			else if (currentMonthNum == 3) {
+			  newObj.month = "March";
+			}
+			else if (currentMonthNum == 4) {
+			  newObj.month = "April";
+			}
+			else if (currentMonthNum == 5) {
+			   newObj.month = "May";
+			}
+			else if (currentMonthNum == 6) {
+			   newObj.month = "June";
+			}
+			else if (currentMonthNum == 7) {
+			  newObj.month = "July";
+			}
+			else if (currentMonthNum == 8) {
+			 newObj.month = "August";
+			}
+			else if (currentMonthNum == 9) {
+			   newObj.month = "September";
+			}
+			else if (currentMonthNum == 10) {
+			  newObj.month = "October";
+			}
+			else if (currentMonthNum == 11) {
+			   newObj.month = "November";
+			}
+			else if (currentMonthNum == 12) {
+			  newObj.month = "December";
+			}
+			list.splice( i, 0, newObj); 
+			i++;
+		}
+	}
+	return data;
+}
 function filterData(data) {
 	data = extrapolateData(data);
 	data.sort(helperCompare);
 	data.reverse();
+	data = addSpacers(data);
 	return data;
 }
 function addEntry(bodyElement,dataId) {
@@ -125,6 +187,28 @@ function addEntry(bodyElement,dataId) {
 	bodyElement.appendChild(newDiv);
 }
 
+function addHeader(bodyElement,dataId) {
+	var newHeader = document.createElement("h1"); 
+	var monthSpan = document.createElement("span"); 
+	var yearSpan = document.createElement("span");
+	
+	monthSpan.innerHTML = curData[dataId].month;	
+	if (  curData[dataId].year != -1) {
+		yearSpan.innerHTML = curData[dataId].year;
+	}
+	
+	//add classes
+	monthSpan.classList.add('month');
+	yearSpan.classList.add('year');
+	
+	newHeader.classList.add('time');
+	
+	//append elements
+	newHeader.appendChild(monthSpan);
+	newHeader.appendChild(yearSpan);
+	bodyElement.appendChild(newHeader);
+}
+
 function renderData(bodyElement){
 	console.log(curData);
 	while (bodyElement.firstChild) {
@@ -133,6 +217,9 @@ function renderData(bodyElement){
   	for (var i = 0; i < curData.length; i++) 
 		if (curData[i].isEntry == true) {
 			addEntry(bodyElement,i);
+		}
+		else {
+			addHeader(bodyElement,i);
 		}
 	}
 }
