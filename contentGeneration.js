@@ -214,7 +214,7 @@ function renderData(bodyElement){
 	while (bodyElement.firstChild) {
     	bodyElement.removeChild(bodyElement.firstChild);
   	}
-  	for (var i = 0; i < curData.length; i++) 
+  	for (var i = 0; i < curData.length; i++) {
 		if (curData[i].isEntry == true) {
 			addEntry(bodyElement,i);
 		}
