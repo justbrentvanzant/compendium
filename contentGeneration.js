@@ -37,6 +37,8 @@ function addEntry(bodyElement,dataId) {
 	//add classes
 	dateSpan.classList.add('date');
 	nameSpan.classList.add('name');
+	newDiv.classList.add('entry');
+	newDiv.classList.add(curData[dataId].contentType);
 	
 	//append elements
 	nameSpan.appendChild(aTag);
