@@ -49,7 +49,7 @@ function renderData(bodyElement){
 	while (bodyElement.firstChild) {
     	bodyElement.removeChild(bodyElement.firstChild);
   	}
-  	for (var i = 0; i < currData.length; i++) {
+  	for (var i = 0; i < curData.length; i++) {
 		if (typeName != "intern" || typeName == "") {
 			addEntry(bodyElement,i);
 		}
