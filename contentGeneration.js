@@ -97,6 +97,7 @@ function extrapolateData(data) {
 function filterData(data) {
 	data = extrapolateData(data);
 	data.sort(helperCompare);
+	data.reverse();
 	return data;
 }
 function addEntry(bodyElement,dataId) {
