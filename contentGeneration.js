@@ -46,6 +46,7 @@ function addEntry(bodyElement,dataId) {
 }
 
 function renderData(bodyElement){
+	console.log(curData);
 	while (bodyElement.firstChild) {
     	bodyElement.removeChild(bodyElement.firstChild);
   	}
