@@ -108,7 +108,7 @@ function addSpacers(data) {
 			data.splice( i, 0, newObj); 
 			i++;
 		}
-		else if (currentMonthNum < data[i].monthNum) {
+		else if (currentMonthNum > data[i].monthNum) {
 			currentMonthNum = data[i].monthNum;
 			var newObj = {};
 			newObj.year = -1;
