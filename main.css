@@ -1,0 +1,124 @@
+body {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 200;
+	line-height: 32px;
+    color: #515456;
+	overflow-y:hidden;
+}
+.sideContainer {
+  background-color: transparent;
+  width: 30%;
+  height: 28%;
+  position: absolute;
+  left: 20%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.footerContainer {
+  background-color: transparent;
+  width: 30%;
+  height: 5%;
+  position: absolute;
+  left: 5%;
+  bottom: 1.5%;
+}
+
+.contents{
+  float:right;
+  width:600px;
+  height:100%;
+    overflow:hidden;
+}
+
+.holder {
+	overflow-y: scroll;
+	width: 100%;
+    height: 100%;
+	box-sizing: content-box;
+	padding-right: 18px; 
+}
+.time {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+
+.date {
+	float: right;
+}
+h1 {
+	font-weight:400;
+	
+}
+a:link {
+  text-decoration: none;
+  color: inherit;
+}
+.generalLink:link {
+  text-decoration: underline;
+  color: inherit;
+}
+
+
+a:visited {
+  text-decoration: none;
+   color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: inherit;
+}
+
+a:active {
+  text-decoration: underline;
+   color: inherit;
+}
+
+.entry::before {
+  content: "\2022";  
+  font-weight: bold;
+  font-size: 2;
+  display: inline-block; 
+  width: 1em; 
+  font-size:24px;
+  margin-left: 0em;
+}
+.month {
+	float:right;
+}
+.video::before {
+	color: blue; /* Change the color */
+}
+.article::before {
+	color: green; /* Change the color */
+}
+
+
+.holder:hover .entry {
+    opacity:0.3;
+}
+.holder .entry:hover {
+    opacity:1;
+	color:black;
+	font-size:17px;
+}
+.title {
+	font-size:28px;
+	font-weight:500;
+	margin-bottom:1%;
+}
+.summary {
+	font-size:18px;
+	font-weight:300;
+	line-height:22px;
+}
+
+.footer {
+	font-size:14px;
+	font-weight:500;
+	line-height:22px;
+}
+
