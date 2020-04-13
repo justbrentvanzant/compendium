@@ -20,9 +20,85 @@ function displayGeneralInfo(data, tabletop) {
 }
 function storeData(data){
   artifactData = data;
-  curData = artifactData;
+  curData = filterData(artifactData);
 }
 
+/*helper function to compare to date objects
+ */
+function helperCompare(a, b) {
+  if (a.year > b.year) {
+	  return 1;  
+  }
+  if (a.year < b.year) {
+	  return -1;
+  }
+  if (a.monthNum < b.monthNum) {
+	  return -1;
+  }
+  if (a.monthNum > b.monthNum) {
+	  return 1;
+  }
+  if (a.dateNum < b.dateNum) {
+	  return -1;
+  }
+  if (a.dateNum > b.dateNum) {
+	  return -1;
+  }
+  return 0;
+}
+
+function extrapolateData(data) {
+	for (var i = 0; i < data.length; i++) {
+		var monthNum = 0; 
+		var monthString = data[i].month;
+		monthString = monthString.toLowerCase();
+		if (monthString == "january") {
+		   monthNum = 1;
+		}
+		else if (monthString == "february") {
+		   monthNum = 2;
+		}
+		else if (monthString == "march") {
+		   monthNum = 3;
+		}
+		else if (monthString == "april") {
+		   monthNum = 4;
+		}
+		else if (monthString == "may") {
+		   monthNum = 5;
+		}
+		else if (monthString == "june") {
+		   monthNum = 6;
+		}
+		else if (monthString == "july") {
+		   monthNum = 7;
+		}
+		else if (monthString == "august") {
+		   monthNum = 8;
+		}
+		else if (monthString == "september") {
+		   monthNum = 9;
+		}
+		else if (monthString == "october") {
+		   monthNum = 10;
+		}
+		else if (monthString == "november") {
+		   monthNum = 11;
+		}
+		else if (monthString == "december") {
+		   monthNum = 12;
+		}
+		data[i].dateNum = data[i].date.replace(/\D/g,'');
+		data[i].monthNum = monthNum;
+	}
+	return data;
+}
+
+function filterData(data) {
+	data = extrapolateData(data);
+	data.sort(helperCompare);
+	return data;
+}
 function addEntry(bodyElement,dataId) {
 	var newDiv = document.createElement("div"); 
 	var nameSpan = document.createElement("span"); 
